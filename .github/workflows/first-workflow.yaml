@@ -16,7 +16,7 @@ jobs:
         run: echo "Hello World!"
       - name: Run Multiline Script
         run: |
-          echo Hey This is me Ratul"
+          echo "Hey This is me Ratul"
           echo "This is my first CI/CD & Docker project"
       - name: List Files
         run: ls ${{github.workspace}}
