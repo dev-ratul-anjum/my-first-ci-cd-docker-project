@@ -1,0 +1,28 @@
+Name: My First GitHub Actions Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Action Started"
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run Online Script
+        run: echo "Hello World!"
+      - name: Run Multiline Script
+        run: |
+          echo Hey This is me Ratul"
+          echo "This is my first CI/CD & Docker project"
+      - name: List Files
+        run: ls ${{github.workspace}}
+      - name: Print Github Context
+        env:
+          GITHUB_CONTEXT: ${{toJson(github)}}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Action Completed
+        run: echo "Action completed!"
